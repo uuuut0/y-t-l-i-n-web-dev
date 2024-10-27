@@ -6,7 +6,7 @@ import MainFooter from './components/MainFooter.vue';
 
 <template>
   <MainHeader/>
-  <RouterView />
+  <RouterView class="min-h-[70vh]" />
   <MainFooter />
 </template>
 

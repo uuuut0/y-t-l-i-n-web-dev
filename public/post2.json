@@ -1,0 +1,46 @@
+{"intro":{
+    "title":"Music Studio Static Website",
+    "titleInfo":"針對多尺寸裝置開發網站，從介面設計到前端開發",
+    "list":["frontend: HTML,Css,JavaScript"
+            ],
+    "link":{"deployed":"https://tibamesite.com","code":"https://github.com"},
+    "projectDetails":{
+        "titleInfo":"不使用前端框架，原生HTML和CSS開發",
+        "paragraphs":[
+        "開發時程一個月，個人開發。","使用Figma設計介面，原生HTML和CSS，部分JavaScript處理介面互動"
+        ]
+    },
+    "sectionsTitle":{
+        "1":"desktop-first 設計響應式css樣式",
+        "2":"Javascript:全版面modal處理及menu",
+        "3":"區塊切版設計與開發思路",
+        "4":"CSS輪播區塊"
+    }
+},
+
+"overview":{
+    "titleInfo":"",
+    "paragraphs":[
+        "這是一個初學階段作品，主要展示切版能力的網頁專案，熟悉設計介面稿後實際執行設計的開發。無使用其他前端框架及函式庫。"]
+},
+"sections":{
+"1": {
+    "title":"desktop-first 設計響應式css樣式",
+    "titleInfo":"官方頻道所有，分享影片連結，未經授權不得任意下載、上傳、截圖，進行商業行為或做其他利用。",
+    "paragraphs":[
+    "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words"
+]},
+"2": {"title":"Javascript:全版面modal處理及menu","paragraphs":[
+"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of ","de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum", "Lorem ipsum dolor sit amet..", "comes from a line in section 1.10.32.",
+"section12,written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.."," comes from a line in section 1.10.32."
+]},
+"3": {"title":"區塊切版設計與開發思路","paragraphs":[
+"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of", "de Finibus Bonorum et Malorum (The Extremes of G"
+]},
+"4": {"title":"CSS輪播區塊","paragraphs":[
+"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of", "de Finibus Bonorum et Malorum (The Extremes of G"
+]}
+
+}}
+
+

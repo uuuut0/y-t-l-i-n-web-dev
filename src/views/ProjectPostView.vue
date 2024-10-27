@@ -2,10 +2,14 @@
 
 import ProjectPostSection from '@/components/ProjectPostSection.vue';
 import { onMounted, ref } from 'vue';
-const postdata = ref(null)
+import { useRoute } from 'vue-router';
+const route = useRoute()
 
+const postdata = ref(null)
+const loadingstatus = ref('loading')
 const getpostdata = async()=>{
-    await new Promise((resolve)=> setTimeout(resolve,1000));
+    await new Promise((resolve)=> setTimeout(resolve,2000));
+    loadingstatus.value = ref('loaded')
     postdata.value = {
     intro:{
         title:{},
@@ -35,78 +39,106 @@ const getpostdata = async()=>{
 }
 }
 }
-// onMounted(async()=>{
-// await getpostdata()}
-// )
+const fetchpost = async(param)=>{
+    try{
+        loadingstatus.value = 'loading';
+        const response = await fetch('/post'+param+'.json');
+        postdata.value = await response.json()
+        await new Promise((resolve)=> setTimeout(resolve,2000));
+        loadingstatus.value = 'loaded'
+    }catch(error){
+        await new Promise((resolve)=> setTimeout(resolve,2000));
+        console.error('Fetch Error:',error)
+        loadingstatus.value = 'failed'
+    }
+}
 
-postdata.value= {
-    intro:{
-        title:{},
-        titleInfo:{},
-        link:{deployed:{},code:{}},
-        sectionsTitle:{1:'fetching的資料處理',2:'SCSS系統 style設計過程與決策',3:'section3',4:'section4'}
-    },
-    overview:{
-        titleInfo:'this is for overview titleinfo',
-        paragraphs:['Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum','A Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur']
-    },
-    sections:{
-   1: {title:'fetching的資料處理',titleInfo:'官方頻道所有，分享影片連結，未經授權不得任意下載、上傳、截圖，進行商業行為或做其他利用。',paragraphs:[
-    'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words'
-   ]},
-   2: {title:'SCSS系統 style設計過程與決策',paragraphs:[
-    'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-    'section12,written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'
-   ]},
-   3: {title:'SCSS系統 style設計過程與決策',paragraphs:[
-    'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of G'
-   ]},
-   4: {title:'SCSS系統 style設計過程與決策',paragraphs:[
-    'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of G'
-   ]}
-   
+
+onMounted(async()=>{
+await fetchpost(route.params.id);
+
 }
-}
+)
 </script>
 
 <template>
-
-            <div class="container mx-auto " v-if="postdata">
-
+            <div class="container mx-auto " v-if="loadingstatus === 'loaded'">
                 <section class="flex flex-col  md:flex-row ">
-                    <div class="bg-red-50 flex flex-wrap content-end">
-                        <div class=" h-fit w-full py-8 px-2 ">
-                            <h1 class="text-xl leading-loose mb-2">travel service website</h1>
+                    <div class="bg-white flex flex-wrap content-end">
+                        <div class=" h-fit w-full pb-2 [&>div]:px-2 ">
+                            <!-- title -->
+                            <div class=" bg-stone-100">
+                                <h1 class="text-xl leading-loose mb-2">
+                                    {{postdata.intro.title}}
+                                </h1>
+                            </div>
+                            <!-- content -->
                             <div class="md:w-11/12 ml-auto">
-                            <p>bootcamp group project</p>
-                            <p> - frontend: SPA built with Vue, backend: PHP, database with mySQL</p>
-                            <p>deployed-website, source code -github</p>
-                        </div>
+                                <p>{{postdata.intro.titleInfo}}</p>
+                                <p v-for="(p ,n) in postdata.intro.list" :key="n" 
+                                    class="before:content-['-']">
+                                    {{p}}
+                                </p>
+                                <!-- links -->
+                                <div class="mt-3">
+                                    <ul class="[&_a]:text-yellow-950 [&_a]:border-b [&_a]:border-b-yellow-600
+                                    hover:[&_a]:border-b-2 ">
+                                        <li v-if="postdata.intro.link.deployed">
+                                            deployed->
+                                            <a :href="postdata.intro.link.deployed"
+                                            target="_blank" rel="noopener noreferrer">
+                                                website
+                                            </a>                    
+                                        </li>
+                                        <li v-if="postdata.intro.link.code">
+                                            sourcecode->
+                                            <a :href="postdata.intro.link.code">
+                                                github
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-slate-500  min-h-48 max-h-56 w-full md:w-11/12 overflow-x-scroll">
+                    <div class="bg-slate-500  min-h-48 max-h-80 w-full md:w-11/12 overflow-x-scroll">
                         <img class="w-full object-cover object-left-top tofade" src="@/assets/images/wireframe.png" alt="">
                     </div>
                 </section>
-                <div class="bg-stone-100 px-4 ">
-                    <section class="mt-sectionbase bg-white px-1 py-4" >
-                        <h2 class="text-2xl">project details</h2>
-                        <p>*group project , below listed my contributed in development</p>
-            
-                        <div class="bg-slate-200 w-fit p-2 my-4 ">
+                <div class="pl-6 mb-sectionbase">
+                    <!-- post-intro -->
+                    <section class="mt-sectionbase bg-white [&>*]:px-2 py-4" >
+                        <h2 class="text-2xl">Project Details</h2>
+                        <p v-if="postdata.intro.projectDetails.titleInfo">
+                            {{postdata.intro.projectDetails.titleInfo}}
+                        </p>
+                        <div v-if="postdata.intro.projectDetails.paragraphs"
+                         class="pt-2 border-t border-neutral-300">
+                         <p v-for="(p,n) in postdata.intro.projectDetails.paragraphs" :key="n"
+                         class="mb-1">
+                            {{p}}
+                        </p> 
+                </div>
+
+                        <!-- section links -->
+                        <div class="w-fit p-2 my-4 ">
                             <ul class="[&>li]:w-fit 
-                                [&>li]:border-b [&>li]:border-neutral-400
+                                [&>li_a]:border-b [&>li_a:hover]:border-b-2
+                                 [&>li_a]:border-yellow-600
+                                 [&>li_a]:transition-all
+                                [&>li]:text-base [&>li]:mb-1 lg:[&>li]:mb-2
                                 " >
-                                <li >
+                                <li>
                                     <a href="#sectionoverview">Overview</a>
                                 </li>
-                                <li v-if="postdata.intro"
+                                <li v-if="postdata.intro.sectionsTitle"
                                  v-for="(title,n) in postdata.intro.sectionsTitle">
                                  <a :href="'#section'+n" class="">#{{title}}</a>
                                 </li>
                             </ul>
                         </div>
                     </section>
+                    <!-- post-sections -->
                     <ProjectPostSection v-if="postdata.overview" 
                      :pindex="'overview'" :titleInfo="postdata.overview.titleInfo"
                     :paragraphs="postdata.overview.paragraphs">
@@ -119,29 +151,26 @@ postdata.value= {
                     </ProjectPostSection>
                 </div>
             </div>       
-
-            <div v-else class="">
+            <!-- FETCHING HANDLE -->
+            <div v-else-if="loadingstatus === 'loading'" class="py-5">
                 <h1 class="loadingstyle text-center">Please wait</h1>
                 <h1 class="loadingstyle text-center">fetching data...</h1>
+            </div>
+            <div v-else-if="loadingstatus === 'failed'" class="py-5 bg-white">
+                <h1 class="loadingstyle text-center">Sorry</h1>
+                <h1 class="loadingstyle text-center">something went wrong</h1>
             </div>
 
 </template>
 <style lang="css" scoped>
 @keyframes blinking {
     from{ opacity: 100%;}
-    to{opacity: 20%;}
+    to{opacity: 40%;}
 }
 .loadingstyle{
-    animation: blinking .8s infinite;
+    animation: blinking 1s infinite;
 }
-.tofade{
-    mask: linear-gradient(250deg,
-            #ffffff 20%,
-            #ffffffd6 50%,
-            #ffffff 70%,
 
-            transparent);
-}
 a[href^='section']{
         transition: all .4s;
         display: none;
