@@ -21,12 +21,6 @@ const router = createRouter({
       component: () => import('../views/ProjectPostView.vue'),
       props:true
     }
-,
-    {
-      path: '/:pathMatch(.*)*',
-      redirect: '/'
-      
-    }
   ],
   scrollBehavior(to, from, savedPosition){
     if(to.hash){

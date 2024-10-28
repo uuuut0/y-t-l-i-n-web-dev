@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router';
 const props = defineProps({
-       
+
        pindex:{type:String},
        title:{type:String},
        content:{type:String},
@@ -38,9 +38,11 @@ function goToPost(param){
                 <li class="" >SCSS</li>
         </ul>
         </div>
-            <!-- card-body -->
+        <!-- card-body -->
         <div class="min-h-16 xl:min-h-32  tofade hover:tofade-on transition-all bg-tilt" >
-            <p class=" w-full lg:w-8/12 max-h-32 pt-6 px-2 md:px-cardpaddingbase " >使用@font-face為每個字體變體定義對應的 font-weight。在Tailwind中使用字體粗細類別（如 font-light, font-semibold, font-bold）來應用不同的字重。3.確保你的字體檔案路徑正確，且檔案格式如 .woff2 和 .ttf 能夠覆蓋常見的瀏覽器相容性。</p>
+            <p class=" w-full lg:w-8/12 max-h-32 pt-6 px-2 md:px-cardpaddingbase " >
+                使用@font-face為每個字體變體定義對應的 font-weight。在Tailwind中使用字體粗細類別（如 font-light, font-semibold, font-bold）來應用不同的字重。3.確保你的字體檔案路徑正確，且檔案格式如 .woff2 和 .ttf 能夠覆蓋常見的瀏覽器相容性。
+            </p>
         </div>
     
     </div>

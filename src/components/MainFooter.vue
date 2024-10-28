@@ -2,7 +2,8 @@
     <div class="  bg-slate-100  py-4 h-[10vh] shadow-md
     container mx-auto select-none pointer-events-none">
         <div class="">
-            <div class="w-fit ml-auto px-3 text-zinc-600">Developed and designed by giok y.t. lin</div>
+            <div class="w-fit ml-auto px-3 text-zinc-600">
+                Developed and designed by YT Lin :)</div>
             <div class="border-t border-neutral-400 mt-1"></div>
         </div>
     </div>
