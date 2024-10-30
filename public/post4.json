@@ -1,15 +1,16 @@
 {"intro":{
-    "title":"4Travel Guide Severice Website",
-    "titleInfo":"提供旅遊資訊的形象網站，前端網頁開發作品，具備基礎後端及資料庫",
-    "list":["frontend: SPA built with Vue",
-            "backend: PHP, database with mySQL"],
+    "title":"CookingBlog Website",
+    "titleInfo":"料理部落格網站，前端網頁作品，以原生WebAPI製作頁面滾動特效",
+    "list":["frontend: SPA built with Vue"],
     "link":{"deployed":"https://tibamesite.com","code":"https://github.com"},
     "projectDetails":{
-        "titleInfo":"此專案為團隊開發",
+        "titleInfo":"開發中專案 WIP",
         "paragraphs":[
-        "開發時程一個月，由六人團隊開發，包含前端架設部署資料庫後端API，詳細分工資訊可以在source-code readme查閱",
-        "此專案開發：前端互動特效,會員註冊登入系統,票務系統,地圖分享功能（使用leaflet和openstreetmap）儲存和建立行程,文章發布,留言,訪客按讚,管理員Dashboard",
-        "個人主責開發：（1）blog頁面 包含切版,搜尋功能之前端功能和後端API開發,留言按讚處理之前端功能和後端API開發,（2）alltrip行程總覽頁面 包含切版,搜尋篩選處理之前端功能和後端API開發,(3)會員專區頁面 部分切版,(4)首頁-最新消息區塊 切版前端功能及後端API"]
+        "實踐多種互動特效的練習專案",
+        "以BEM原則進行SCSS樣式class之命名",
+        "設計及開發更貼合使用者體驗的Carousell自定義元件",
+        "建立自定義的SCSS系統，更便利拓展使用"
+    ]
     },
     "sectionsTitle":{
         "1":"fetching的資料處理",

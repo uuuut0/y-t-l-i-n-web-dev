@@ -7,38 +7,7 @@ const route = useRoute()
 
 const postdata = ref(null)
 const loadingstatus = ref('loading')
-// const getpostdata = async()=>{
-//     await new Promise((resolve)=> setTimeout(resolve,2000));
-//     loadingstatus.value = ref('loaded')
-//     postdata.value = {
-//     intro:{
-//         title:{},
-//         titleInfo:{},
-//         link:{deployed:{},code:{}},
-//         sectionsTitle:{1:'fetching的資料處理',2:'SCSS系統 style設計過程與決策',3:'section3',4:'section4'}
-//     },
-//     overview:{
-//         titleInfo:'this is for overview titleinfo',
-//         paragraphs:['Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum','A Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur']
-//     },
-//     sections:{
-//    1: {title:'fetching的資料處理',titleInfo:'官方頻道所有，分享影片連結，未經授權不得任意下載、上傳、截圖，進行商業行為或做其他利用。',paragraphs:[
-//     'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words'
-//    ]},
-//    2: {title:'SCSS系統 style設計過程與決策',paragraphs:[
-//     'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-//     'section12,written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'
-//    ]},
-//    3: {title:'SCSS系統 style設計過程與決策',paragraphs:[
-//     'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of G'
-//    ]},
-//    4: {title:'SCSS系統 style設計過程與決策',paragraphs:[
-//     'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of G'
-//    ]}
-   
-// }
-// }
-// }
+
 const fetchpost = async(param)=>{
     try{
         loadingstatus.value = 'loading';
@@ -56,25 +25,22 @@ const fetchpost = async(param)=>{
 
 onMounted(async()=>{
 await fetchpost(route.params.id);
-
 }
 )
 </script>
 
 <template>
             <div class="container mx-auto " v-if="loadingstatus === 'loaded'">
-                <section class="flex flex-col bg-white  md:flex-row">
+                <section class="grid grid-cols-1 sm:grid-cols-2 max-w-screen-xl mx-auto items-center content-center bg-mygrey">
                     <!-- card -->
-                    <div class="flex flex-wrap content-end ">
+                    <div class="w-full flex flex-wrap content-end ">
                         <div class=" h-fit w-full shadow-sm">
                             <!-- head-title -->
-                            <div class=" bg-mygrey px-2">
-                                <h1 class="text-xl leading-loose pl-5">
-                                    {{postdata.intro.title}}
-                                </h1>
-                            </div>
+                            <h1 class="text-xl leading-loose ml-6 my-4 px-1 md:px-2  bg-white w-fit">
+                                {{postdata.intro.title}}
+                            </h1>
                             <!-- body-content -->
-                            <div class="pl-8 pr-2 py-4 ">
+                            <div class="pl-6 pr-8 py-2 md:py-3">
                                 <p>{{postdata.intro.titleInfo}}</p>
                                 <p v-for="(p ,n) in postdata.intro.list" :key="n" 
                                     class="before:content-['-']">
@@ -103,48 +69,55 @@ await fetchpost(route.params.id);
                         </div>
                     </div>
                     <!-- image -->
-                    <div class="bg-slate-500  min-h-48 max-h-80 w-full md:w-11/12 overflow-x-scroll">
-                        <img class="w-full object-cover object-left-top tofade" src="@/assets/images/wireframe.png" alt="">
+                    <div class="h-auto md:max-h-80 px-4 md:px-0  ">
+                        <img class="block object-co object-top m-auto  w-full h-full " src="@/assets/images/wireframe.png" alt="">
                     </div>
                 </section>
-                <div class="pl-6 mb-sectionbase 
-                [&>section]:max-w-screen-xl [&>section]:mx-auto">
-                    <!-- post-intro -->
-                    <section class="mt-sectionbase bg-white px-2 py-4 shadow-sm
-                    " >
-                        <h2 class="text-2xl">Project Details</h2>
-                        <p v-if="postdata.intro.projectDetails.titleInfo">
-                            {{postdata.intro.projectDetails.titleInfo}}
-                        </p>
-                        <div v-if="postdata.intro.projectDetails.paragraphs"
-                         class="pt-2 border-t border-neutral-300">
-                            <p v-for="(p,n) in postdata.intro.projectDetails.paragraphs" :key="n" class="mb-1 mr-auto">
-                            {{p}}
-                            </p> 
+                <div class="mb-sectionbase pl-4 md:pl-20 xl:pl-0 
+                max-w-screen-xl mx-auto">
+                    <!-- post- section-details -->
+                    <section class="mt-sectionbase bg-white py-4 
+" >
+                        <div class="border-b px-2 border-neutral-300 ">
+                            <h2 class="text-2xl ">Project Details</h2>
+                            <p v-if="postdata.intro.projectDetails.titleInfo">
+                                {{postdata.intro.projectDetails.titleInfo}}
+                            </p>                            
                         </div>
-                        <!-- section links -->
-                        <div class="w-fit px-2 py-2 ml-1 my-4 bg-tilt">
-                            <ul class="[&>li]:w-fit 
-                                [&>li_a]:border-b [&>li_a:hover]:border-b-2
-                                 [&>li_a]:border-yellow-600
-                                 [&>li_a]:transition-all
-                                [&>li]:text-base [&>li]:mb-1 lg:[&>li]:mb-2
-                                " >
-                                <li>
-                                    <a href="#sectionoverview">Overview</a>
-                                </li>
-                                <li v-if="postdata.intro.sectionsTitle"
-                                 v-for="(title,n) in postdata.intro.sectionsTitle">
-                                 <a :href="'#section'+n" class="">#{{title}}</a>
-                                </li>
-                            </ul>
+                        <div class="pl-2 pr-8 md:px-0">
+                            <!-- section-details --content  -->
+                            <div v-if="postdata.intro.projectDetails.paragraphs"
+                            class="pt-4 max-w-lg mx-auto ">
+                                <p v-for="(p,n) in postdata.intro.projectDetails.paragraphs" :key="n" class="mb-1 mr-auto">
+                                {{p}}
+                                </p> 
+                            </div>
+                            <!-- section-details --links -->
+                             <div class="max-w-lg mx-auto">
+                                    <ul class=" w-fit md:w-auto max-w-lg px-2 py-2  mr-auto md:ml-auto my-4 bg-tilt
+                                        [&>li]:w-fit [&>li]:text-base 
+                                        [&>li]:mb-1 lg:[&>li]:mb-2
+                                        [&>li_a]:border-b [&>li_a:hover]:border-b-2
+                                        [&>li_a]:border-yellow-600
+                                        [&>li_a]:transition-all
+                                        " >
+                                        <li>
+                                            <a href="#sectionoverview">Overview</a>
+                                        </li>
+                                        <li v-if="postdata.intro.sectionsTitle"
+                                        v-for="(title,n) in postdata.intro.sectionsTitle">
+                                        <a :href="'#section'+n" class="">#{{title}}</a>
+                                        </li>
+                                    </ul>
+                            </div>
                         </div>
                     </section>
-                    <!-- post-sections -->
+                    <!-- post- section-main --overview -->
                     <ProjectPostSection v-if="postdata.overview" 
                      :pindex="'overview'" :titleInfo="postdata.overview.titleInfo"
                     :paragraphs="postdata.overview.paragraphs">
                     </ProjectPostSection>
+                    <!-- post- section-main --each -->
                     <ProjectPostSection v-if="postdata.sections" 
                     v-for="(section,n) in postdata.sections"
                     :pindex="n"

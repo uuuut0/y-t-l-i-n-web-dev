@@ -1,23 +1,23 @@
 {
     "1":{
         "title":"Travel Service Fullstack Project",
-        "content":"",
-        "tag":["1","2","3","4"]
+        "content":"全端開發，資料庫存取和會員系統等等。六人協作以GitHub版本控制",
+        "tags":["Vue","SCSS","JavaScript","PHP","mySQL","Git"]
     },
     "2":{
         "title":"Music Studio Website",
-        "content":"",
-        "tag":["HTML","CSS","JavaScript"]
+        "content":"靜態網站開發，響應式設計，原生HTML及CSS",
+        "tags":["HTML","CSS","JavaScript"]
     },
     "3":{
         "title":"DevPortfolio Website",
-        "content":"",
-        "tag":["Tailwindcss","Vue","Vercel","4"]
+        "content":"Tailwindcss網站樣式開發，文章區塊元件設計，以Vercel自動化部署",
+        "tags":["Vue","Tailwindcss","JavaScript","Vercel"]
     },
     "4":{
         "title":"CookingBlog Website",
-        "content":"",
-        "tag":["SCSS","2","3","4"]
+        "content":"針對SCSS自定義系統之練習專案，WebAPI滾動監聽，互動效果處理JavaScript",
+        "tags":["Vue","SCSS","JavaScript","WebAPI"]
     }
     
 }

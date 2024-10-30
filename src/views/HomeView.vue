@@ -1,4 +1,5 @@
 <script setup>
+import DotLoader from '@/components/DotLoader.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 import TheContact from '@/components/TheContact.vue';
 import TheGreet from '@/components/TheGreet.vue';
@@ -21,28 +22,18 @@ onMounted(
   <div class="container mx-auto">
     <TheGreet class="px-4" id="sectionGreet"/>
     <div class="mt-sectionbase ">
-      <h2 class="text-2xl py-2 px-2">All projects</h2>
-
+      <h2 class="text-2xl py-4 px-4">All projects</h2>
       <div v-if="projectsData"
-      class="grid grid-cols-2 gap-4 
-      pb-4 select-none"
+      class="grid grid-cols-2 gap-x-2 md:gap-x-6 gap-y-6  
+      pb-4 select-none px-4"
       id="sectionProjects">
-        <div v-if="projectsData"
-         class="" v-for="(item,n) in projectsData">
+        <div class="" v-for="(item,n) in projectsData">
           <ProjectCard class="cursor-pointer" 
-          :pindex="n" :title="item.title" :content="dddd" :tag="['Vue.js','SCSS','WebAPI']" />
+          :pindex="n" :title="item.title" :content="item.content"
+           :tags="item.tags" />
         </div>
       </div>
-            <!-- loading-section -->
-      <div v-else class="mx-auto py-4 flex w-fit gap-4 
-       [&>div]:bg-stone-600 [&>div]:rounded-sm
-        [&>div]:size-2">
-        <div class="animate-[bounce_.8s_infinite_0ms]"></div>
-        <div class="animate-[bounce_.8s_infinite_100ms]"></div>
-        <div class="animate-[bounce_.8s_infinite_200ms]"></div>
-        <div class="animate-[bounce_.8s_infinite_300ms]"></div>
-      </div>
-
+      <DotLoader v-else/>
     </div>
 
     <TheContact class="mt-sectionbase"  id="sectionContact"/>
