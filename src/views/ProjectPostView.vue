@@ -99,8 +99,8 @@ await fetchpost(route.params.id);
                                         [&>li_a]:border-b [&>li_a:hover]:border-b-2
                                         [&>li_a]:border-yellow-600
                                         [&>li_a]:transition-all
-                                        " v-if="postdata.intro.overview" >
-                                        <li v-if="postdata.intro.overview">
+                                        " v-if="postdata.overview" >
+                                        <li v-if="postdata.overview">
                                             <a href="#sectionoverview">Overview</a>
                                         </li>
                                         <li v-if="postdata.intro.sectionsTitle"
