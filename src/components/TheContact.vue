@@ -15,7 +15,7 @@
                 </p>
             </div>
             <div class="[&>p]:mb-1 [&>p]:px-2 [&>p]:text-base px-8  mx-auto ">
-                <p>Open to project-based or full-time opportunities in frontend web dev.</p>
+                <p>Looking for full-time opportunities in frontend web dev.</p>
                 <p>For more details, including my CV,<br>
                  please contact me via email and provide relevant job info.
                 </p>

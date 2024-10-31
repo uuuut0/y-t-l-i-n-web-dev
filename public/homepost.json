@@ -15,7 +15,7 @@
         "tags":["Vue","Tailwindcss","JavaScript","Vercel"]
     },
     "4":{
-        "title":"CookingBlog Website",
+        "title":"PersonalBlog Website",
         "content":"針對SCSS自定義系統之練習專案，WebAPI滾動監聽，互動效果處理JavaScript",
         "tags":["Vue","SCSS","JavaScript","WebAPI"]
     }

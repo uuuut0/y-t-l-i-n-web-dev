@@ -8,8 +8,8 @@
           </div>
           <div class=" w-11/12 md:w-7/12 flex flex-wrap items-center mx-auto py-4">
             <div class="h-fit w-10/12 mx-auto">
-              <h3 class="text-2xl leading-relaxed">Hello my friend</h3>
-              <p class=" mx-auto bg-mygrey p-4">I am Y.T. Lin <br>
+              <h3 class="text-2xl leading-relaxed">Hello</h3>
+              <p class=" mx-auto bg-mygrey p-4">I am YT Lin <br>
                 a frontend web developer.
                 and this is my portfolio for projects i worked on.
                 </p>

@@ -7,7 +7,7 @@ import { onMounted, ref } from 'vue';
 
 const projectsData = ref(null)
 const getProjectPosts = async()=>{
-  await new Promise((resolve)=> setTimeout(resolve,2000));
+  //await new Promise((resolve)=> setTimeout(resolve,1000));
   const response = await fetch('/homepost.json');
   projectsData.value = await response.json()
 }

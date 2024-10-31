@@ -13,10 +13,9 @@ const fetchpost = async(param)=>{
         loadingstatus.value = 'loading';
         const response = await fetch('/post'+param+'.json');
         postdata.value = await response.json()
-        await new Promise((resolve)=> setTimeout(resolve,2000));
+        await new Promise((resolve)=> setTimeout(resolve,1000));
         loadingstatus.value = 'loaded'
     }catch(error){
-        await new Promise((resolve)=> setTimeout(resolve,2000));
         console.error('Fetch Error:',error)
         loadingstatus.value = 'failed'
     }
@@ -69,7 +68,7 @@ await fetchpost(route.params.id);
                         </div>
                     </div>
                     <!-- image -->
-                    <div class="h-auto md:max-h-80 px-4 md:px-0  ">
+                    <div class="h-auto md:max-h-80 px-4 md:px-0 overflow-hidden  ">
                         <img class="block object-co object-top m-auto  w-full h-full " src="@/assets/images/wireframe.png" alt="">
                     </div>
                 </section>
@@ -100,8 +99,8 @@ await fetchpost(route.params.id);
                                         [&>li_a]:border-b [&>li_a:hover]:border-b-2
                                         [&>li_a]:border-yellow-600
                                         [&>li_a]:transition-all
-                                        " >
-                                        <li>
+                                        " v-if="postdata.intro.overview" >
+                                        <li v-if="postdata.intro.overview">
                                             <a href="#sectionoverview">Overview</a>
                                         </li>
                                         <li v-if="postdata.intro.sectionsTitle"
