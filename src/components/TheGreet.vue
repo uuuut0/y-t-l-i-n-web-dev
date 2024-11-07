@@ -9,9 +9,8 @@
           <div class=" w-11/12 md:w-7/12 flex flex-wrap items-center mx-auto py-4">
             <div class="h-fit w-10/12 mx-auto">
               <h3 class="text-2xl leading-relaxed">Hello</h3>
-              <p class=" mx-auto bg-mygrey p-4">I am YT Lin <br>
-                a frontend web developer.
-                and this is my portfolio for projects i worked on.
+              <p class=" mx-auto bg-mygrey p-4">I am YT Lin
+                a frontend web developer.<br>我是YT Lin一名前端工程師，這是我的網頁開發作品整理。
                 </p>
               </div>
             <div class="h-fit w-10/12 mx-auto mt-2">
@@ -27,15 +26,16 @@
                   <li>CSS</li>
                   <li>SCSS</li>
                   <li>Tailwindcss</li>
+                  <li>Git</li>
                 </ul>
-                <!-- <p class="">
-                  Vue.js,JavaScript,HTML5,CSS,SCSS,Tailwindcss
-                </p> -->
               </div>
 
               <p class="mx-auto bg-mygrey p-4 mt-2">
-                Basic knowledge and hands-on experinces:
-                mySQL, PHP
+                <span class="bg-myyellow font-bold px-2 text-lg">Frontend</span><br>
+                熟悉HTML,CSS3，能獨立實現介面需求。擅長Vue3前端框架，及相關套件如Pinia、VueRouter，build tool使用Vite。熟悉RWD處理，能自主建立符合介面需求的使用SCSS。具備Tailwind CSS框架開發經驗。</p>
+              <p class="mx-auto bg-mygrey p-4 mt-2">
+                <span class="bg-myyellow font-bold px-2 text-lg">Backend</span><br>
+                具備PHP開發經驗，理解Restful API概念。熟悉資料庫操作，具備mySQL實務經驗。
               </p>
               <p class="text-xs mt-4 text-slate-600">
                 *Icon Courtesy to-greet by Deylotus Creative Design from Noun Project (CC BY 3.0)

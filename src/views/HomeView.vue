@@ -21,12 +21,12 @@ onMounted(
 <template>
   <div class="container mx-auto">
     <TheGreet class="px-4" id="sectionGreet"/>
-    <div class="mt-sectionbase ">
-      <h2 class="text-2xl py-4 px-4">All projects</h2>
+    <div class="mt-sectionbase "id="sectionProjects">
+      <h2 class="text-2xl py-4 px-4" >All projects</h2>
       <div v-if="projectsData"
       class="grid grid-cols-2 gap-x-2 md:gap-x-6 gap-y-6  
       pb-4 select-none px-4"
-      id="sectionProjects">
+      >
         <div class="" v-for="(item,n) in projectsData">
           <ProjectCard class="cursor-pointer" 
           :pindex="n" :title="item.title" :content="item.content"
@@ -35,18 +35,6 @@ onMounted(
       </div>
       <DotLoader v-else/>
     </div>
-
     <TheContact class="mt-sectionbase"  id="sectionContact"/>
   </div>
 </template>
-<style scoped>
-.d0{
-  animation-delay: 0ms;
-}
-.d1{
-  animation-delay: 100ms;
-}
-.d2{
-  animation-delay: 200ms;
-}
-</style>

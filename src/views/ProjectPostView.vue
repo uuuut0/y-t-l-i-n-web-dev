@@ -59,7 +59,8 @@ await fetchpost(route.params.id);
                                         <li v-if="postdata.intro.link.code">
                                             sourcecode->
                                             <a :href="postdata.intro.link.code"
-                                            target="_blank" rel="noopener noreferrer">                                                github
+                                            target="_blank" rel="noopener noreferrer">
+                                                github
                                             </a>
                                         </li>
                                     </ul>
@@ -124,6 +125,9 @@ await fetchpost(route.params.id);
                     :paragraphs="section.paragraphs">
                     </ProjectPostSection>
                 </div>
+                <div class="w-fit mx-auto cursor-pointer hover:opacity-75">
+                    <RouterLink to="/#sectionProjects">< 回到首頁</RouterLink> 
+                 </div>
             </div>       
             <!-- FETCHING HANDLE -->
             <div v-else-if="loadingstatus === 'loading'" class="py-5">
@@ -133,7 +137,12 @@ await fetchpost(route.params.id);
             <div v-else-if="loadingstatus === 'failed'" class="py-5 bg-white">
                 <h1 class="loadingstyle text-center">Sorry</h1>
                 <h1 class="loadingstyle text-center">something went wrong</h1>
+                            <!-- go-back last page -->
+             <div class="w-fit mx-auto cursor-pointer hover:opacity-75">
+                <RouterLink to="/">< 回到首頁</RouterLink> 
+             </div>
             </div>
+
 
 </template>
 <style lang="css" scoped>
