@@ -1,17 +1,23 @@
-{"intro":{
-    "title":"DevPortfolio Site",
-    "titleInfo":"SPA網站以Vue為前端框架開發,完全使用Tailwindcss建立樣式,使用Vervel自動部署及開發預覽GitHub專案",
-    "list":["frontend: SPA built with Vue"
-           ],
-    "link":{"deployed":"https://y-t-l-i-n-web-dev.vercel.app","code":"https://github.com/uuuut0/y-t-l-i-n-web-dev"},
-    "projectDetails":{
-        "titleInfo":"",
-        "paragraphs":[
-        "響應式頁面處理及動畫效果皆以Tailwindcss處理",
-        "透過tailwind.config 建立自定義class",
-        "以Vercel及GitHub自動部署",
-        ""]
+{
+    "intro": {
+        "title": "個人部落格網站",
+        "titleInfo": "部落格網站，前端網頁作品，以原生WebAPI製作頁面滾動特效。RWD以行動版優先開發 mobile-first",
+        "list": [
+            "frontend: SPA built with Vue"
+        ],
+        "link": {
+            "deployed": "https://just-a-blog-tau.vercel.app",
+            "code": "https://github.com/uuuut0/just-a-blog"
+        },
+        "projectDetails": {
+            "titleInfo": "開發中專案 WIP",
+            "paragraphs": [
+                "webAPI 實踐互動特效的練習專案",
+                "loading-animation ,reveal 自定義效果設計及開發",
+                "以BEM原則進行SCSS樣式class之命名",
+                "設計及開發更貼合使用者體驗的Carousell自定義元件",
+                "SCSS自定義RWD grid system開發，自訂變數拓展"
+            ]
+        }
     }
-}}
-
-
+}

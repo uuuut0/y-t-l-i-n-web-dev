@@ -1,23 +1,24 @@
 {
     "1":{
-        "title":"Travel Service Fullstack Project",
-        "content":"全端開發，資料庫存取和會員系統等等。六人協作以GitHub版本控制",
-        "tags":["Vue","SCSS","JavaScript","PHP","mySQL","Git"]
+        "title":"全端開發旅遊服務網站",
+        "content":"全端開發，包含API開發，資料庫使用mySQL。六人協作以GitHub pull request整合代碼。前端以Vue3及SCSS開發，pinia狀態管理、具備RWD介面、使用git版本控制。",
+        "tags":["Vue","SCSS","JavaScript","PHP","mySQL","Gitflow"]
     },
     "2":{
-        "title":"Music Studio Website",
-        "content":"靜態網站開發，響應式設計，原生HTML及CSS",
-        "tags":["HTML","CSS","JavaScript"]
-    },
-    "3":{
-        "title":"DevPortfolio Website",
-        "content":"Tailwindcss網站樣式開發，文章區塊元件設計，以Vercel自動化部署",
+        "title":"前端工程師網站作品集",
+        "content":"Tailwindcss網站樣式開發，以Vercel自動化部署，使用Vue3 Composition API，元件化開發區塊，提升開發維護體驗。專案具備完整RWD介面。",
         "tags":["Vue","Tailwindcss","JavaScript","Vercel"]
     },
-    "4":{
-        "title":"PersonalBlog Website",
-        "content":"針對SCSS自定義系統之練習專案，WebAPI滾動監聽，互動效果處理JavaScript",
+    "3":{
+        "title":"個人部落格網站",
+        "content":"針對SCSS自定義系統之練習專案，WebAPI滾動監聽，互動效果處理JavaScrip。使用Vue3 Composition API，元件化 開發區塊，提升開發維護體驗。專案具備完整RWD介面。",
         "tags":["Vue","SCSS","JavaScript","WebAPI"]
+    }
+    ,
+    "4":{
+        "title":"音樂工作室形象網站",
+        "content":"以原生HTML、CSS開發，使用JavaScript處理網頁互動。專案具備完整RWD介面",
+        "tags":["HTML","CSS","JavaScript"]
     }
     
 }

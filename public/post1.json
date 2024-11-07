@@ -1,46 +1,72 @@
-{"intro":{
-    "title":"Travel Guide Severice Website",
-    "titleInfo":"提供旅遊資訊的形象網站，前端網頁開發作品，具備基礎後端及資料庫",
-    "list":["frontend: SPA built with Vue",
-            "backend: PHP, database with mySQL"],
-    "link":{"deployed":"https://tibamef2e.com/cid101/g6/front/","code":"https://github.com/redfoxrjie/G6-Front-new/tree/dev"},
-    "projectDetails":{
-        "titleInfo":"此專案為團隊開發",
-        "paragraphs":[
-        "開發時程一個月，由六人團隊開發，包含前端架設部署資料庫後端API，詳細分工資訊可以在source-code readme查閱",
-        "此專案開發：前端互動特效,會員註冊登入系統,票務系統,地圖分享功能（使用leaflet和openstreetmap）儲存和建立行程,文章發布,留言,訪客按讚,管理員Dashboard",
-        "個人主責開發：（1）blog頁面 包含切版,搜尋功能之前端功能和後端API開發,留言按讚處理之前端功能和後端API開發,（2）alltrip行程總覽頁面 包含切版,搜尋篩選處理之前端功能和後端API開發,(3)會員專區頁面 部分切版,(4)首頁-最新消息區塊 切版前端功能及後端API"]
+{
+    "intro": {
+        "title": "旅遊服務網站",
+        "titleInfo": "提供旅遊資訊的形象網站，全端網頁開發作品，具備基礎後端及資料庫",
+        "list": [
+            "frontend: SPA built with Vue",
+            "backend: PHP, database with mySQL"
+        ],
+        "link": {
+            "deployed": "https://tibamef2e.com/cid101/g6/front/",
+            "code": "https://github.com/redfoxrjie/G6-Front-new/tree/dev"
+        },
+        "projectDetails": {
+            "titleInfo": "此專案為團隊開發",
+            "paragraphs": [
+                "開發時程六週，由六人團隊開發，專案包含內容企劃、介面設計、前端開發、部署、資料庫設計、後端API開發，詳細分工資訊列於github-readme",
+                "此專案細項功能：會員註冊登入系統,行程地圖標記(使用leaflet和openstreetmap),建立與編輯行程資料,會員文章發布,會員留言,訪客按讚,票券訂購系統,管理員Dashboard商品管理"
+            ]
+        },
+        "sectionsTitle": {
+            "1": "個人主責部分",
+            "2": "分頁內容顯示，換頁按鈕設計",
+            "3": "輸入功能基本驗證、搜尋功能處理",
+            "4": "會員留言功能",
+            "5": "訪客按讚功能"
+        }
     },
-    "sectionsTitle":{
-        "1":"fetching的資料處理",
-        "2":"SCSS系統 style設計過程與決策",
-        "3":"頁面互動UX細節處理",
-        "4":"主責頁面開發"
+    "overview": {
+        "titleInfo": "以下描述此專案團隊參與整合部分，分工開發前的架構制定。實際開發由對應主責成員。",
+        "paragraphs": [
+            "此專案前端介面使用自定義SCSS架構為共同開發，訂定以css變數使用於全專案色彩數值、字體大小，以mixins建立container、grid system處理RWD介面。前端後台dashboard使用bootstrap元件庫開發介面。",
+            "以vite作為建構工具及提供開發熱模組更新，針對部署後伺服器路由調整。環境變數根據開發階段及部署階段配置對應路由，避免切換本地和伺服器繁複變動api路徑。SPA使用VueRouter建構，當路由指向不存在之頁面，自動跳轉至錯誤頁面(/notfound)。",
+            "使用Pinia存放全域狀態。使用sweetalert元件庫作為彈窗modal。"
+        ]
+    },
+    "sections": {
+        "1": {
+            "title": "個人主責開發部分說明",
+            "titleInfo": "行程總覽、文章總覽、文章頁、會員專區介面架構、關於我們介面架構",
+            "paragraphs": [
+                "文章總覽(/blog):所有功能及RWD介面切版，搜尋功能、訪客按讚、分頁按鈕pagination、後端API、資料庫query。",
+                "文章頁(/blog/param):所有功能及部分區塊切版，根據路由參數顯示不同內容、會員留言、後端API、資料庫query。會員專區 (/member):RWD介面切版。負責主要架構及RWD設計，細部各個tab元件交由團隊成員開發。關於我們 (/aboutus):RWD介面切版。",
+                "文章頁(/blog/param):所有功能及部分區塊切版，根據路由參數顯示不同內容、會員留言、後端API、資料庫query。",
+                "會員專區 (/member):RWD介面切版。負責主要架構及RWD設計，細部各個tab元件交由團隊成員開發。",
+                "關於我們 (/aboutus):RWD介面切版。"
+            ]
+        },
+        "2": {
+            "title": "分頁內容顯示，換頁按鈕設計",
+            "titleInfo": "部署頁面連結:(/alltrips)",
+            "paragraphs": [
+                "因時程規劃及專案為前端技能為主目的，希望以最簡易方式設計後端API，此頁面換頁資料顯示皆在前端以JavaScript處理。",
+                "頁面首次載入即fetch四組地區的所有行程資料陣列，以單一迴圈遍歷地區之項目，執行兩項事務：1.進行分類存入Vue ref上，2.地區內容計數：計算行程數量作為分頁瀏覽的總頁面數、計算創作者數量使用set避免一位創作者創作多筆行程作為頁面顯示資料。",
+                "按鈕功能則使用前述計算後的總頁面數，避免點擊至超出數量的頁數，使頁面畫面顯示不佳。"
+            ]
+        },
+        "3": {
+            "title": "會員留言處理",
+            "titleInfo": "部署頁面連結:(/blog/param)",
+            "paragraphs": [
+                "使用會員系統建立的pinia store，判斷目前是否為登入狀態。前端阻擋以空值送出。此階段訊息通知皆以彈窗modal告知使用者（sweetalert元件庫）。細節資料處理，留言送出後會dom會重新載入觸發此區塊fetch新資料，顯示最新留言。留言日期會格式處理為：剛才、n分鐘前，n小時前，以date-fns函式庫格式處理。"
+            ]
+        },
+        "4": {
+            "title": "訪客按讚功能",
+            "titleInfo": "部署頁面連結:(/blog),(/blog/param)",
+            "paragraphs": [
+                "由於不需要登入狀態，但避免出現過度重複點讚狀態。文章內文頁的按讚流程設計為：按讚後即發送api至資料庫更動此文章讚數，以localstorage 紀錄已按讚貼文，重複點擊僅會進行收回，修改localstorage。可於文章總覽頁面可以看見此次瀏覽階段所按讚的狀態，會改變icon顏色顯示。"
+            ]
+        }
     }
-},
-
-"overview":{
-    "titleInfo":"",
-    "paragraphs":[
-        "（1）blog頁面 包含切版,搜尋功能之前端功能和後端API開發,留言按讚處理之前端功能和後端API開發,（2）alltrip行程總覽頁面 包含切版,搜尋篩選處理之前端功能和後端API開發,(3)會員專區頁面 部分切版,(4)首頁-最新消息區塊 切版前端功能及後端API"]
-},
-"sections":{
-"1": {
-    "title":"fetching的資料處理",
-    "titleInfo":"官方頻道所有，分享影片連結，未經授權不得任意下載、上傳、截圖，進行商業行為或做其他利用。",
-    "paragraphs":[
-    "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words"
-]},
-"2": {"title":"SCSS系統 style設計過程與決策","paragraphs":[
-"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "," comes from a line in section 1.10.32."
-]},
-"3": {"title":"SCSS系統 style設計過程與決策","paragraphs":[
-"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of", "de Finibus Bonorum et Malorum (The Extremes of G"
-]},
-"4": {"title":"SCSS系統 style設計過程與決策","paragraphs":[
-"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of"
-]}
-
-}}
-
-
+}

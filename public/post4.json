@@ -1,17 +1,42 @@
-{"intro":{
-    "title":"PersonalBlog Website",
-    "titleInfo":"部落格網站，前端網頁作品，以原生WebAPI製作頁面滾動特效",
-    "list":["frontend: SPA built with Vue"],
-    "link":{"deployed":"https://just-a-blog-tau.vercel.app","code":"https://github.com/uuuut0/just-a-blog"},
-    "projectDetails":{
-        "titleInfo":"開發中專案 WIP",
-        "paragraphs":[
-        "實踐多種互動特效的練習專案",
-        "以BEM原則進行SCSS樣式class之命名",
-        "設計及開發更貼合使用者體驗的Carousell自定義元件",
-        "建立自定義的SCSS系統，更便利拓展使用"
-    ]
+{
+    "intro": {
+        "title": "音樂工作室形象網站",
+        "titleInfo": "針對多尺寸裝置開發網站，從介面設計到前端開發",
+        "list": [
+            "frontend: HTML,Css,JavaScript"
+        ],
+        "link": {
+            "deployed": "https://uuuut0.github.io/herenow.music/",
+            "code": "https://github.com/uuuut0/herenow.music"
+        },
+        "projectDetails": {
+            "titleInfo": "不使用前端框架，原生HTML和CSS開發",
+            "paragraphs": [
+                "開發時程一個月，個人開發。",
+                "使用Figma設計介面，原生HTML和CSS，部分JavaScript處理介面互動"
+            ]
+        },
+        "sectionsTitle": {
+            "1": "desktop-first 設計響應式css樣式",
+            "2": "Javascript:全版面modal處理及menu",
+            "3": "區塊切版設計與開發思路"
+        }
+    },
+    "overview": {
+        "titleInfo": "",
+        "paragraphs": [
+            "這是一個初學階段作品，主要展示切版能力的網頁專案，熟悉設計介面稿後實際執行設計的開發。無使用其他前端框架及函式庫。"
+        ]
+    },
+    "sections": {
+        "1": {
+            "title": "desktop-first 設計響應式css樣式"
+        },
+        "2": {
+            "title": "Javascript:全版面modal處理及menu"
+        },
+        "3": {
+            "title": "區塊切版設計與開發思路"
+        }
     }
-}}
-
-
+}
